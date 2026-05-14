@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Day 4 — Control Flow — Lesson
+    </title>
+
+    <link rel="preload"
+          href="../../../../Shared/css/styles.css"
+          as="style">
+
+    <link rel="stylesheet"
+          href="../../../../Shared/css/styles.css">
+</head>
+
+<body>
+
+    <div class="page-shell">
+
+        <main class="page-main"
+              id="main-content">
+
+            <header class="page-title">
+
+                <p class="lesson-label">
+                    Lesson
+                </p>
+
+                <h1>
+                    Day 4 — Control Flow
+                </h1>
+
+            </header>
+
+            
+
+            <!-- Topic 1 -->
+
+            <details class="exercise"
+                     open>
+
+                <summary>
+
+                    <span class="lesson-task__tag">
+                        Topic 1
+                    </span>
+
+                    <span class="lesson-task__title">
+                        The if Statement — if (condition) { … }
+                    </span>
+
+                </summary>
+
+                <div class="lesson-task__body">
+
+                    <p class="output-label">
+                        Visual reference
+                    </p>
+
+                    <pre class="run-output">Syntax:   if (condition) { ...code to run if true }
+
+Rule:   If the condition is true, the block runs. If false, skipped.
+
+Always use curly braces — even for one-liners. Skipping them causes bugs
+when you later add a second line.</pre>
+
+                    <p class="output-label">
+                        Follow along — predict each output
+                    </p>
+
+                    <pre class="run-output">const age = 20;
+if (age &gt;= 18) console.log("vote");
+→
+your answer
+
+const score = 30;
+if (score &gt; 50) console.log("pass");
+→
+your answer</pre>
+
+                    <p class="output-label">
+                        Reference answers
+                    </p>
+
+                    <pre id="task1Output"
+                         class="run-output"></pre>
+
+                </div>
+
+            </details>
+
+            <!-- Topic 2 -->
+
+            <details class="exercise">
+
+                <summary>
+
+                    <span class="lesson-task__tag">
+                        Topic 2
+                    </span>
+
+                    <span class="lesson-task__title">
+                        if / else if / else — Decision chains
+                    </span>
+
+                </summary>
+
+                <div class="lesson-task__body">
+
+                    <p class="homework-q">
+                        <strong>Order matters:</strong>
+                        JavaScript stops at the
+                        <strong>first</strong>
+                        true branch. Order from most specific to least
+                        specific.
+                    </p>
+
+                    <p class="homework-q">
+                        <strong>Common bug:</strong>
+                        writing
+                        <code>marks &gt;= 60</code>
+                        before
+                        <code>marks &gt;= 90</code>
+                        makes the 90+ branch unreachable (90 is also ≥ 60).
+                    </p>
+
+                    <p class="output-label">
+                        Visual reference
+                    </p>
+
+                    <pre class="run-output">if (conditionA) {
+  // branch A
+} else if (conditionB) {
+  // branch B
+} else {
+  // fallback
+}</pre>
+
+                    <p class="output-label">
+                        Follow along — what grade does Aarav get?
+                    </p>
+
+                    <pre class="run-output">marks = 85
+if (marks &gt;= 90) "A"
+else if (marks &gt;= 75) "B"
+else if (marks &gt;= 60) "C"
+else "F"
+→
+grade?
+
+marks = 50 → grade?
+→
+your answer
+
+marks = 95 → grade?
+→
+your answer</pre>
+
+                    <p class="output-label">
+                        Reference answers
+                    </p>
+
+                    <pre id="task2Output"
+                         class="run-output"></pre>
+
+                </div>
+
+            </details>
+
+            <!-- Topic 3 -->
+
+            <details class="exercise">
+
+                <summary>
+
+                    <span class="lesson-task__tag">
+                        Topic 3
+                    </span>
+
+                    <span class="lesson-task__title">
+                        Nesting &amp; Why to Avoid It
+                    </span>
+
+                </summary>
+
+                <div class="lesson-task__body">
+
+                    <p class="homework-q">
+                        Code that drifts right is a smell. The
+                        <strong>pyramid of doom</strong>
+                        —
+                        <code>if</code>
+                        inside
+                        <code>if</code>
+                        inside
+                        <code>if</code>
+                        — is allowed but hard to read. Each level adds
+                        mental effort.
+                    </p>
+
+                    <p class="output-label">
+                        Example (hard to follow)
+                    </p>
+
+                    <pre class="run-output">if (user) {
+  if (user.isActive) {
+    if (user.age &gt;= 18) {
+      console.log("Access granted");
+    }
+  }
+}</pre>
+
+                    <p class="homework-q">
+                        We flatten this with
+                        <strong>guard clauses</strong>
+                        in Topic 6.
+                    </p>
+
+                    <p class="output-label">
+                        Reference (simulated run)
+                    </p>
+
+                    <pre id="task3Output"
+                         class="run-output"></pre>
+
+                </div>
+
+            </details>
+
+            <!-- Topic 4 -->
+
+            <details class="exercise">
+
+                <summary>
+
+                    <span class="lesson-task__tag">
+                        Topic 4
+                    </span>
+
+                    <span class="lesson-task__title">
+                        switch Statement
+                    </span>
+
+                </summary>
+
+                <div class="lesson-task__body">
+
+                    <p class="homework-q">
+                        Use when comparing
+                        <strong>one</strong>
+                        variable to many
+                        <strong>exact</strong>
+                        values (day name, status, role).
+                    </p>
+
+                    <p class="output-label">
+                        Visual reference
+                    </p>
+
+                    <pre class="run-output">3 keywords:   case (match)   break (exit)   default (fallback)
+
+⚠ Forget break → fall-through! Execution continues into the NEXT case.
+The #1 switch bug.</pre>
+
+                    <p class="output-label">
+                        Follow along
+                    </p>
+
+                    <pre class="run-output">day = "Tuesday"
+switch (day) { case "Tuesday": "Second day"; ... }
+→
+output?
+
+day = "Saturday"
+case "Saturday":
+case "Sunday": "Weekend"
+→
+output?
+
+case "5":  ...  value = 5 (number)
+does it match?
+→
+yes or no?</pre>
+
+                    <p class="output-label">
+                        Reference answers
+                    </p>
+
+                    <pre id="task4Output"
+                         class="run-output"></pre>
+
+                </div>
+
+            </details>
+
+            <!-- Topic 5 -->
+
+            <details class="exercise">
+
+                <summary>
+
+                    <span class="lesson-task__tag">
+                        Topic 5
+                    </span>
+
+                    <span class="lesson-task__title">
+                        Truthy &amp; Falsy (deep)
+                    </span>
+
+                </summary>
+
+                <div class="lesson-task__body">
+
+                    <p class="output-label">
+                        Critical — memorise this
+                    </p>
+
+                    <pre class="run-output">The 6 falsy values:
+  1. false    2. 0    3. "" (empty string)    4. null    5. undefined    6. NaN
+
+Everything else is truthy.
+
+Surprises:   "0" (string) → truthy   ·   [] → truthy   ·   {} → truthy   ·   " " (space) → truthy</pre>
+
+                    <p class="output-label">
+                        Follow along — truthy or falsy?
+                    </p>
+
+                    <pre class="run-output">if (0) { ... }
+→
+runs?
+
+if ("0") { ... }
+→
+runs?
+
+if ([]) { ... }
+→
+runs?
+
+if (null) { ... }
+→
+runs?
+
+if (NaN) { ... }
+→
+runs?
+
+if ("false") { ... }
+→
+runs?</pre>
+
+                    <p class="output-label">
+                        Reference answers
+                    </p>
+
+                    <pre id="task5Output"
+                         class="run-output"></pre>
+
+                </div>
+
+            </details>
+
+            <!-- Topic 6 -->
+
+            <details class="exercise">
+
+                <summary>
+
+                    <span class="lesson-task__tag">
+                        Topic 6
+                    </span>
+
+                    <span class="lesson-task__title">
+                        Guard Clauses — Clean Code
+                    </span>
+
+                </summary>
+
+                <div class="lesson-task__body">
+
+                    <p class="homework-q">
+                        <strong>Pattern:</strong>
+                        handle invalid cases at the top with
+                        <code>return</code>.
+                        The happy path sits at the bottom with less nesting.
+                    </p>
+
+                    <p class="output-label">
+                        Before — nested
+                    </p>
+
+                    <pre class="run-output">function checkAccess(user) {
+  if (user) {
+    if (user.isActive) {
+      if (user.age &gt;= 18) {
+        console.log("Access granted");
+      }
+    }
+  }
+}</pre>
+
+                    <p class="output-label">
+                        After — guard clauses
+                    </p>
+
+                    <pre class="run-output">function checkAccess(user) {
+  if (!user) return;
+  if (!user.isActive) return;
+  if (user.age &lt; 18) return;
+
+  console.log("Access granted");
+}</pre>
+
+                    <p class="output-label">
+                        Reference notes
+                    </p>
+
+                    <pre id="task6Output"
+                         class="run-output"></pre>
+
+                </div>
+
+            </details>
+
+        </main>
+
+        <!-- Sidebar -->
+
+        <aside class="site-outline"
+       aria-label="Curriculum outline">
+
+    <p class="site-outline-title">
+        Curriculum
+    </p>
+
+    <ul class="site-outline-tree">
+
+        <li class="site-outline-item">
+
+            <a href="../../index.html">
+                Overview
+            </a>
+
+        </li>
+
+        <!-- Day 1 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 1 — Welcome &amp; Variables
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%201/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%201/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%201/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 2 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 2 — Primitive Types
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%202/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%202/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%202/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 3 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 3 — Operators &amp; Core JS Concepts
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%203/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%203/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%203/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 4 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details" open>
+
+                <summary>
+                    Day 4 — Control Flow
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="lesson.html"
+                           aria-current="page">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 5 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 5 — Loops &amp; Iteration
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%205/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%205/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%205/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 6 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 6 — Functions
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%206/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%206/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%206/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 7 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 7 — Arrays
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%207/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%207/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%207/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 8 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 8 — Objects
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%208/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%208/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%208/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 9 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 9 — ES6+ Essentials
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%209/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%209/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%209/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 10 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 10 — DOM Manipulation Basics
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%2010/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%2010/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%2010/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 11 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 11 — Events &amp; Event Handling
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%2011/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%2011/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%2011/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 12 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 12 — Error Handling &amp; Module Basics
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%2012/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%2012/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%2012/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Advanced JavaScript -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Advanced JavaScript
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../../Advanced%20Js/Day%201/html/lesson.html">
+                            Adv 1 · Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../../Advanced%20Js/Day%201/html/hands-on.html">
+                            Adv 1 · Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../../Advanced%20Js/Day%201/html/homework.html">
+                            Adv 1 · Homework
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../../Advanced%20Js/Day%202/html/lesson.html">
+                            Adv 2 · Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../../Advanced%20Js/Day%202/html/hands-on.html">
+                            Adv 2 · Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../../Advanced%20Js/Day%202/html/homework.html">
+                            Adv 2 · Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+    </ul>
+
+</aside>
+
+
+    </div>
+
+    <script defer src="../js/lesson.js"></script>
+
+    <script src="../../../Shared/js/nav-lock.js"></script>
+
+</body>
+
+</html>

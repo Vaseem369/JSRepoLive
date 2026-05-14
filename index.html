@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        JavaScript — Curriculum overview
+    </title>
+
+    <link rel="preload"
+          href="Shared/css/styles.css"
+          as="style">
+
+    <link rel="stylesheet"
+          href="Shared/css/styles.css">
+
+    <style>
+        .page-hero {
+            margin-bottom: 2rem;
+            padding: 1.75rem 0 2rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .hero-label {
+            margin: 0 0 0.5rem;
+            font-size: 0.85rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            opacity: 0.75;
+        }
+
+        .hero-title {
+            margin: 0 0 0.75rem;
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            line-height: 1.2;
+        }
+
+        .hero-description {
+            margin: 0 0 1.25rem;
+            max-width: 42rem;
+            line-height: 1.55;
+            opacity: 0.9;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .primary-btn,
+        .secondary-btn {
+            display: inline-block;
+            padding: 0.55rem 1.15rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid transparent;
+        }
+
+        .primary-btn {
+            background: #2563eb;
+            color: #fff;
+        }
+
+        .primary-btn:hover {
+            background: #1d4ed8;
+            color: #fff;
+        }
+
+        .secondary-btn {
+            background: transparent;
+            color: inherit;
+            border-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .secondary-btn:hover {
+            border-color: rgba(0, 0, 0, 0.4);
+        }
+
+        #curriculum-grid {
+            scroll-margin-top: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page-shell">
+
+        <main class="page-main"
+              id="main-content">
+
+            <header class="page-hero">
+
+                <p class="hero-label">
+                    JavaScript Curriculum
+                </p>
+
+                <h1 class="hero-title">
+                    JavaScript Fundamentals Roadmap
+                </h1>
+
+                <p class="hero-description">
+                    A complete 12-day learning path covering variables, functions,
+                    arrays, objects, DOM manipulation, events, modules, and modern ES6+ JavaScript.
+                </p>
+
+                <!-- <div class="hero-actions">
+
+                    <a class="primary-btn"
+                       href="Day%201/html/lesson.html">
+                        Start Learning
+                    </a>
+
+                    <a class="secondary-btn"
+                       href="#curriculum-grid">
+                        Browse Days
+                    </a>
+
+                </div> -->
+
+            </header>
+
+            <section id="curriculum-grid"
+                     aria-label="Browse days by theme">
+
+            <details class="exercise"
+                     open>
+
+                <summary>
+
+                    <span class="lesson-task__tag">
+                        At a glance
+                    </span>
+
+                </summary>
+
+                <div class="lesson-task__body">
+
+                    <ul class="homework-q">
+
+                        <li>
+                            <a href="Day%201/html/lesson.html">Day 1</a>
+                            — Welcome &amp; variables
+                        </li>
+
+                        <li>
+                            <a href="Day%202/html/lesson.html">Day 2</a>
+                            — Primitive types
+                        </li>
+
+                        <li>
+                            <a href="Day%203/html/lesson.html">Day 3</a>
+                            — Operators &amp; core concepts
+                        </li>
+
+                        <li>
+                            <a href="Day%204/html/lesson.html">Day 4</a>
+                            — Control flow
+                        </li>
+
+                        <li>
+                            <a href="Day%205/html/lesson.html">Day 5</a>
+                            — Loops &amp; iteration
+                        </li>
+
+                        <li>
+                            <a href="Day%206/html/lesson.html">Day 6</a>
+                            — Functions
+                        </li>
+
+                        <li>
+                            <a href="Day%207/html/lesson.html">Day 7</a>
+                            — Arrays
+                        </li>
+
+                        <li>
+                            <a href="Day%208/html/lesson.html">Day 8</a>
+                            — Objects
+                        </li>
+
+                        <li>
+                            <a href="Day%209/html/lesson.html">Day 9</a>
+                            — ES6+ essentials
+                        </li>
+
+                        <li>
+                            <a href="Day%2010/html/lesson.html">Day 10</a>
+                            — DOM manipulation basics
+                        </li>
+
+                        <li>
+                            <a href="Day%2011/html/lesson.html">Day 11</a>
+                            — Events &amp; event handling
+                        </li>
+
+                        <li>
+                            <a href="Day%2012/html/lesson.html">Day 12</a>
+                            — Error handling &amp; module basics
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </details>
+
+            </section>
+
+        </main>
+
+        <!-- Sidebar — same tree as day pages; paths from repo root -->
+
+        <aside class="site-outline"
+               aria-label="Curriculum outline">
+
+            <p class="site-outline-title">
+                Curriculum
+            </p>
+
+            <ul class="site-outline-tree">
+
+                <li class="site-outline-item">
+
+                    <a href="index.html"
+                       aria-current="page">
+                        Overview
+                    </a>
+
+                </li>
+
+                <li class="site-outline-day">
+
+                    <details class="site-outline-details">
+
+                        <summary>
+                            Day 1 — Welcome &amp; Variables
+                        </summary>
+
+                        <ul>
+
+                            <li>
+                                <a href="Day%201/html/lesson.html">
+                                    Lesson
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="Day%201/html/hands-on.html">
+                                    Hands-on
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="Day%201/html/homework.html">
+                                    Homework
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </details>
+
+                </li>
+
+                <li class="site-outline-day">
+
+                    <details class="site-outline-details">
+
+                        <summary>
+                            Day 2 — Primitive Types
+                        </summary>
+
+                        <ul>
+
+                            <li>
+                                <a href="Day%202/html/lesson.html">
+                                    Lesson
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="Day%202/html/hands-on.html">
+                                    Hands-on
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="Day%202/html/homework.html">
+                                    Homework
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </details>
+
+                </li>
+
+                <li class="site-outline-day">
+
+                    <details class="site-outline-details">
+
+                        <summary>
+                            Day 3 — Operators &amp; Core JS Concepts
+                        </summary>
+
+                        <ul>
+
+                            <li>
+                                <a href="Day%203/html/lesson.html">
+                                    Lesson
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="Day%203/html/hands-on.html">
+                                    Hands-on
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="Day%203/html/homework.html">
+                                    Homework
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </details>
+
+                </li>
+
+                <li class="site-outline-day">
+
+                    <details class="site-outline-details">
+
+                        <summary>
+                            Day 4 — Control Flow
+                        </summary>
+
+                        <ul>
+
+                            <li>
+                                <a href="Day%204/html/lesson.html">
+                                    Lesson
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="Day%204/html/hands-on.html">
+                                    Hands-on
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="Day%204/html/homework.html">
+                                    Homework
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </details>
+
+                </li>
+
+                <li class="site-outline-day">
+
+                    <details class="site-outline-details">
+
+                        <summary>
+                            Day 5 — Loops &amp; Iteration
+                        </summary>
+
+                        <ul>
+
+                            <li>
+                                <a href="Day%205/html/lesson.html">
+                                    Lesson
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="Day%205/html/hands-on.html">
+                                    Hands-on
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="Day%205/html/homework.html">
+                                    Homework
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </details>
+
+                </li>
+
+                <li class="site-outline-day">
+
+                    <details class="site-outline-details">
+
+                        <summary>
+                            Day 6 — Functions
+                        </summary>
+
+                        <ul>
+
+                            <li>
+                                <a href="Day%206/html/lesson.html">
+                                    Lesson
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="Day%206/html/hands-on.html">
+                                    Hands-on
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="Day%206/html/homework.html">
+                                    Homework
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </details>
+
+                </li>
+
+                <li class="site-outline-day">
+
+                    <details class="site-outline-details">
+
+                        <summary>
+                            Day 7 — Arrays
+                        </summary>
+
+                        <ul>
+
+                            <li>
+                                <a href="Day%207/html/lesson.html">
+                                    Lesson
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="Day%207/html/hands-on.html">
+                                    Hands-on
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="Day%207/html/homework.html">
+                                    Homework
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </details>
+
+                </li>
+
+                <li class="site-outline-day">
+
+                    <details class="site-outline-details">
+
+                        <summary>
+                            Day 8 — Objects
+                        </summary>
+
+                        <ul>
+
+                            <li>
+                                <a href="Day%208/html/lesson.html">
+                                    Lesson
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="Day%208/html/hands-on.html">
+                                    Hands-on
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="Day%208/html/homework.html">
+                                    Homework
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </details>
+
+                </li>
+
+                <li class="site-outline-day">
+
+                    <details class="site-outline-details">
+
+                        <summary>
+                            Day 9 — ES6+ Essentials
+                        </summary>
+
+                        <ul>
+
+                            <li>
+                                <a href="Day%209/html/lesson.html">
+                                    Lesson
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="Day%209/html/hands-on.html">
+                                    Hands-on
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="Day%209/html/homework.html">
+                                    Homework
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </details>
+
+                </li>
+
+                <li class="site-outline-day">
+
+                    <details class="site-outline-details">
+
+                        <summary>
+                            Day 10 — DOM Manipulation Basics
+                        </summary>
+
+                        <ul>
+
+                            <li>
+                                <a href="Day%2010/html/lesson.html">
+                                    Lesson
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="Day%2010/html/hands-on.html">
+                                    Hands-on
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="Day%2010/html/homework.html">
+                                    Homework
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </details>
+
+                </li>
+
+                <li class="site-outline-day">
+
+                    <details class="site-outline-details">
+
+                        <summary>
+                            Day 11 — Events &amp; Event Handling
+                        </summary>
+
+                        <ul>
+
+                            <li>
+                                <a href="Day%2011/html/lesson.html">
+                                    Lesson
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="Day%2011/html/hands-on.html">
+                                    Hands-on
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="Day%2011/html/homework.html">
+                                    Homework
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </details>
+
+                </li>
+
+                <li class="site-outline-day">
+
+                    <details class="site-outline-details">
+
+                        <summary>
+                            Day 12 — Error Handling &amp; Module Basics
+                        </summary>
+
+                        <ul>
+
+                            <li>
+                                <a href="Day%2012/html/lesson.html">
+                                    Lesson
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="Day%2012/html/hands-on.html">
+                                    Hands-on
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="Day%2012/html/homework.html">
+                                    Homework
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </details>
+
+                </li>
+
+                <li class="site-outline-day">
+
+                    <details class="site-outline-details">
+
+                        <summary>
+                            Advanced JavaScript
+                        </summary>
+
+                        <ul>
+
+                            <li>
+                                <a href="../Advanced%20Js/Day%201/html/lesson.html">
+                                    Adv 1 · Lesson
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../Advanced%20Js/Day%201/html/hands-on.html">
+                                    Adv 1 · Hands-on
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../Advanced%20Js/Day%201/html/homework.html">
+                                    Adv 1 · Homework
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../Advanced%20Js/Day%202/html/lesson.html">
+                                    Adv 2 · Lesson
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../Advanced%20Js/Day%202/html/hands-on.html">
+                                    Adv 2 · Hands-on
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../Advanced%20Js/Day%202/html/homework.html">
+                                    Adv 2 · Homework
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </details>
+
+                </li>
+
+            </ul>
+
+        </aside>
+
+    </div>
+
+    <script src="Shared/js/nav-lock.js"></script>
+
+</body>
+
+</html>

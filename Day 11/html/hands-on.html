@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Day 11 — Events &amp; Event Handling — Hands-on
+    </title>
+
+    <link rel="preload"
+          href="../../../../Shared/css/styles.css"
+          as="style">
+
+    <link rel="stylesheet"
+          href="../../../../Shared/css/styles.css">
+
+    <style>
+        .events-playground {
+            margin: 1.25rem 0 2rem;
+            padding: 1rem 1.25rem;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .events-playground .play-row {
+            margin-bottom: 1.25rem;
+        }
+
+        .events-playground .play-row:last-child {
+            margin-bottom: 0;
+        }
+
+        #live-input {
+            display: block;
+            margin: 0.35rem 0;
+            min-width: 16rem;
+        }
+
+        #preview {
+            margin: 0.35rem 0 0;
+            min-height: 1.25rem;
+            opacity: 0.85;
+        }
+
+        #reg-form {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        #welcome {
+            flex-basis: 100%;
+            margin: 0.25rem 0 0;
+            min-height: 1.25rem;
+        }
+
+        #todo-list {
+            margin: 0;
+            padding-left: 1.25rem;
+        }
+
+        #todo-list li {
+            cursor: pointer;
+            padding: 0.2rem 0;
+            user-select: none;
+        }
+
+        #todo-list li.done {
+            text-decoration: line-through;
+            opacity: 0.65;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page-shell">
+
+        <main class="page-main"
+              id="main-content">
+
+            <header class="page-title">
+
+                <p class="lesson-label">
+                    Hands-on
+                </p>
+
+                <h1>
+                    Day 11 — Events &amp; Event Handling
+                </h1>
+
+                <p class="curriculum-lede">
+                    Counter, live preview, form submit without reload, and one
+                    delegated listener on a todo list.
+                </p>
+
+            </header>
+
+            <section class="events-playground"
+                     aria-label="Event practice area">
+
+                <div class="play-row">
+
+                    <button type="button"
+                            id="counter-btn">
+                        Click me
+                    </button>
+
+                    <span>
+                        Clicks:
+                        <span id="count">0</span>
+                    </span>
+
+                </div>
+
+                <div class="play-row">
+
+                    <label for="live-input">
+                        Live input
+                    </label>
+
+                    <input id="live-input"
+                           type="text"
+                           autocomplete="off"
+                           placeholder="Type here…">
+
+                    <p id="preview"
+                       class="preview">
+                        Start typing…
+                    </p>
+
+                </div>
+
+                <form id="reg-form"
+                      class="play-row"
+                      action="#"
+                      method="get">
+
+                    <input id="name-field"
+                           name="name"
+                           type="text"
+                           placeholder="Your name"
+                           autocomplete="name">
+
+                    <button type="submit">
+                        Register
+                    </button>
+
+                    <p id="welcome"></p>
+
+                </form>
+
+                <ul id="todo-list"
+                    class="todo-list">
+
+                    <li>
+                        Learn events
+                    </li>
+
+                    <li>
+                        Practice delegation
+                    </li>
+
+                    <li>
+                        Ship homework
+                    </li>
+
+                </ul>
+
+            </section>
+
+            <!-- Task 1 -->
+
+            <details class="exercise"
+                     open>
+
+                <summary>
+
+                    <span class="lesson-task__tag">
+                        Task 1
+                    </span>
+
+                    <span class="lesson-task__title">
+                        Click counter
+                    </span>
+
+                </summary>
+
+                <div class="lesson-task__body">
+
+                    <p class="homework-q">
+                        Wire
+                        <code>#counter-btn</code>
+                        and
+                        <code>#count</code>:
+                        each click increments a variable and updates the span.
+                        <strong>Bonus:</strong>
+                        after 10 clicks, set the button label to
+                        <code>"Stop clicking!"</code>.
+                    </p>
+
+                    <p class="output-label">
+                        Reference code
+                    </p>
+
+                    <pre id="task1Code"
+                         class="run-output"></pre>
+
+                    <p class="output-label">
+                        Reference solution output
+                    </p>
+
+                    <pre id="task1Output"
+                         class="run-output"></pre>
+
+                </div>
+
+            </details>
+
+            <!-- Task 2 -->
+
+            <details class="exercise">
+
+                <summary>
+
+                    <span class="lesson-task__tag">
+                        Task 2
+                    </span>
+
+                    <span class="lesson-task__title">
+                        Live input preview
+                    </span>
+
+                </summary>
+
+                <div class="lesson-task__body">
+
+                    <p class="homework-q">
+                        On
+                        <code>#live-input</code>,
+                        listen for
+                        <code>input</code>
+                        and mirror the value into
+                        <code>#preview</code>.
+                        <strong>Bonus:</strong>
+                        when empty, show
+                        <code>"Start typing…"</code>
+                        in the preview.
+                    </p>
+
+                    <p class="output-label">
+                        Reference code
+                    </p>
+
+                    <pre id="task2Code"
+                         class="run-output"></pre>
+
+                    <p class="output-label">
+                        Reference solution output
+                    </p>
+
+                    <pre id="task2Output"
+                         class="run-output"></pre>
+
+                </div>
+
+            </details>
+
+            <!-- Task 3 -->
+
+            <details class="exercise">
+
+                <summary>
+
+                    <span class="lesson-task__tag">
+                        Task 3
+                    </span>
+
+                    <span class="lesson-task__title">
+                        Form preventDefault
+                    </span>
+
+                </summary>
+
+                <div class="lesson-task__body">
+
+                    <p class="homework-q">
+                        On
+                        <code>#reg-form</code>
+                        <code>submit</code>,
+                        call
+                        <code>preventDefault</code>,
+                        read
+                        <code>#name-field</code>,
+                        set
+                        <code>#welcome</code>
+                        to
+                        <code>Welcome, &lt;name&gt;!</code>
+                        with a template literal.
+                        <strong>Bonus:</strong>
+                        empty name →
+                        <code>"Please enter your name"</code>.
+                    </p>
+
+                    <p class="output-label">
+                        Reference code
+                    </p>
+
+                    <pre id="task3Code"
+                         class="run-output"></pre>
+
+                    <p class="output-label">
+                        Reference solution output
+                    </p>
+
+                    <pre id="task3Output"
+                         class="run-output"></pre>
+
+                </div>
+
+            </details>
+
+            <!-- Task 4 -->
+
+            <details class="exercise">
+
+                <summary>
+
+                    <span class="lesson-task__tag">
+                        Task 4
+                    </span>
+
+                    <span class="lesson-task__title">
+                        Event delegation on a list
+                    </span>
+
+                </summary>
+
+                <div class="lesson-task__body">
+
+                    <p class="homework-q">
+                        One
+                        <code>click</code>
+                        listener on
+                        <code>#todo-list</code>.
+                        If
+                        <code>e.target.tagName === "LI"</code>,
+                        toggle the
+                        <code>done</code>
+                        class on that item.
+                        <strong>Bonus:</strong>
+                        append a new
+                        <code>&lt;li&gt;</code>
+                        with
+                        <code>createElement</code>
+                        — it should work with the same listener.
+                    </p>
+
+                    <p class="output-label">
+                        Reference code
+                    </p>
+
+                    <pre id="task4Code"
+                         class="run-output"></pre>
+
+                    <p class="output-label">
+                        Reference solution output
+                    </p>
+
+                    <pre id="task4Output"
+                         class="run-output"></pre>
+
+                </div>
+
+            </details>
+
+        </main>
+
+        <!-- Sidebar -->
+
+        <aside class="site-outline"
+       aria-label="Curriculum outline">
+
+    <p class="site-outline-title">
+        Curriculum
+    </p>
+
+    <ul class="site-outline-tree">
+
+        <li class="site-outline-item">
+
+            <a href="../../index.html">
+                Overview
+            </a>
+
+        </li>
+
+        <!-- Day 1 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 1 — Welcome &amp; Variables
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%201/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%201/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%201/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 2 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 2 — Primitive Types
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%202/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%202/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%202/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 3 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 3 — Operators &amp; Core JS Concepts
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%203/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%203/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%203/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 4 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 4 — Control Flow
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%204/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%204/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%204/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 5 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 5 — Loops &amp; Iteration
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%205/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%205/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%205/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 6 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 6 — Functions
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%206/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%206/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%206/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 7 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 7 — Arrays
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%207/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%207/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%207/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 8 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 8 — Objects
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%208/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%208/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%208/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 9 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 9 — ES6+ Essentials
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%209/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%209/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%209/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 10 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 10 — DOM Manipulation Basics
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%2010/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%2010/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%2010/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 11 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details" open>
+
+                <summary>
+                    Day 11 — Events &amp; Event Handling
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="hands-on.html"
+                           aria-current="page">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 12 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 12 — Error Handling &amp; Module Basics
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%2012/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%2012/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%2012/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Advanced JavaScript -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Advanced JavaScript
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../../Advanced%20Js/Day%201/html/lesson.html">
+                            Adv 1 · Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../../Advanced%20Js/Day%201/html/hands-on.html">
+                            Adv 1 · Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../../Advanced%20Js/Day%201/html/homework.html">
+                            Adv 1 · Homework
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../../Advanced%20Js/Day%202/html/lesson.html">
+                            Adv 2 · Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../../Advanced%20Js/Day%202/html/hands-on.html">
+                            Adv 2 · Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../../Advanced%20Js/Day%202/html/homework.html">
+                            Adv 2 · Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+    </ul>
+
+</aside>
+
+
+    </div>
+
+    <script defer
+            src="../js/hands-on.js"></script>
+
+    <script src="../../../Shared/js/nav-lock.js"></script>
+
+</body>
+
+</html>

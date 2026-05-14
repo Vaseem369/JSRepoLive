@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Day 7 — Arrays — Lesson
+    </title>
+
+    <link rel="preload"
+          href="../../../../Shared/css/styles.css"
+          as="style">
+
+    <link rel="stylesheet"
+          href="../../../../Shared/css/styles.css">
+</head>
+
+<body>
+
+    <div class="page-shell">
+
+        <main class="page-main"
+              id="main-content">
+
+            <header class="page-title">
+
+                <p class="lesson-label">
+                    Lesson
+                </p>
+
+                <h1>
+                    Day 7 — Arrays
+                </h1>
+
+                <p class="curriculum-lede">
+                    Indexing, mutating vs non-mutating methods,
+                    <code>forEach</code>
+                    /
+                    <code>map</code>,
+                    predicates,
+                    <code>reduce</code>,
+                    and the spread operator — with reference output for every topic.
+                </p>
+
+            </header>
+
+            
+
+            <!-- Topic 1 -->
+
+            <details class="exercise"
+                     open>
+
+                <summary>
+
+                    <span class="lesson-task__tag">
+                        Topic 1
+                    </span>
+
+                    <span class="lesson-task__title">
+                        Creating &amp; Accessing — index 0, length, .at(-1)
+                    </span>
+
+                </summary>
+
+                <div class="lesson-task__body">
+
+                    <p class="output-label">
+                        Example code
+                    </p>
+
+                    <pre class="run-output">const fruits = ["apple", "banana", "mango"];
+
+console.log(fruits[0]);                   // apple
+console.log(fruits[2]);                   // mango
+console.log(fruits.length);               // 3
+console.log(fruits[fruits.length - 1]);   // mango (last)
+
+// Modify an element
+fruits[1] = "cherry";
+console.log(fruits);                      // changed array
+
+// Negative index? No — undefined
+console.log(fruits[-1]);                  // undefined  (use .at(-1) instead)
+console.log(fruits.at(-1));               // mango</pre>
+
+                    <p class="output-label">
+                        Reference output (console order)
+                    </p>
+
+                    <pre id="task1Output"
+                         class="run-output"></pre>
+
+                </div>
+
+            </details>
+
+            <!-- Topic 2 -->
+
+            <details class="exercise">
+
+                <summary>
+
+                    <span class="lesson-task__tag">
+                        Topic 2
+                    </span>
+
+                    <span class="lesson-task__title">
+                        Mutating Methods
+                    </span>
+
+                </summary>
+
+                <div class="lesson-task__body">
+
+                    <p class="output-label">
+                        Quick reference
+                    </p>
+
+                    <pre class="run-output">push(item)       Add to END
+pop()            Remove from END
+unshift(item)    Add to START
+shift()          Remove from START
+splice(i, n)     Remove n items at index i
+splice(i, 0, x)  Insert x at index i</pre>
+
+                    <p class="output-label">
+                        Example run
+                    </p>
+
+                    <pre id="task2Output"
+                         class="run-output"></pre>
+
+                </div>
+
+            </details>
+
+            <!-- Topic 3 -->
+
+            <details class="exercise">
+
+                <summary>
+
+                    <span class="lesson-task__tag">
+                        Topic 3
+                    </span>
+
+                    <span class="lesson-task__title">
+                        Non-Mutating Methods
+                    </span>
+
+                </summary>
+
+                <div class="lesson-task__body">
+
+                    <p class="homework-q">
+                        <strong>slice</strong>
+                        vs
+                        <strong>splice</strong>
+                        — one letter, opposite worlds:
+                        <code>slice</code>
+                        = safe copy;
+                        <code>splice</code>
+                        = mutates in place.
+                    </p>
+
+                    <p class="output-label">
+                        Quick reference
+                    </p>
+
+                    <pre class="run-output">slice(s, e)   New array, partial copy
+concat(arr2)  New combined array
+join("-")     A STRING
+includes(x)   true / false
+indexOf(x)    Index or -1</pre>
+
+                    <p class="output-label">
+                        Example run
+                    </p>
+
+                    <pre id="task3Output"
+                         class="run-output"></pre>
+
+                </div>
+
+            </details>
+
+            <!-- Topic 4 -->
+
+            <details class="exercise">
+
+                <summary>
+
+                    <span class="lesson-task__tag">
+                        Topic 4
+                    </span>
+
+                    <span class="lesson-task__title">
+                        forEach &amp; map
+                    </span>
+
+                </summary>
+
+                <div class="lesson-task__body">
+
+                    <p class="homework-q">
+                        <code>forEach(fn)</code>
+                        runs a function on each element; return value is
+                        <code>undefined</code>
+                        — use for side effects.
+                        <code>map(fn)</code>
+                        returns a
+                        <strong>new</strong>
+                        array of transformed values.
+                    </p>
+
+                    <p class="output-label">
+                        Reference output
+                    </p>
+
+                    <pre id="task4Output"
+                         class="run-output"></pre>
+
+                </div>
+
+            </details>
+
+            <!-- Topic 5 -->
+
+            <details class="exercise">
+
+                <summary>
+
+                    <span class="lesson-task__tag">
+                        Topic 5
+                    </span>
+
+                    <span class="lesson-task__title">
+                        filter · find · some · every
+                    </span>
+
+                </summary>
+
+                <div class="lesson-task__body">
+
+                    <p class="output-label">
+                        Quick reference
+                    </p>
+
+                    <pre class="run-output">filter(fn)   NEW array of all that pass
+find(fn)     FIRST match (or undefined)
+some(fn)     true if AT LEAST ONE passes
+every(fn)    true if ALL pass</pre>
+
+                    <p class="output-label">
+                        Example run
+                    </p>
+
+                    <pre id="task5Output"
+                         class="run-output"></pre>
+
+                </div>
+
+            </details>
+
+            <!-- Topic 6 -->
+
+            <details class="exercise">
+
+                <summary>
+
+                    <span class="lesson-task__tag">
+                        Topic 6
+                    </span>
+
+                    <span class="lesson-task__title">
+                        reduce — Aggregation
+                    </span>
+
+                </summary>
+
+                <div class="lesson-task__body">
+
+                    <p class="homework-q">
+                        Syntax:
+                        <code>arr.reduce((acc, current) => ..., startingValue)</code>
+                        — the callback runs once per element; the accumulator
+                        carries forward.
+                    </p>
+
+                    <p class="output-label">
+                        Reference output
+                    </p>
+
+                    <pre id="task6Output"
+                         class="run-output"></pre>
+
+                </div>
+
+            </details>
+
+            <!-- Topic 7 -->
+
+            <details class="exercise">
+
+                <summary>
+
+                    <span class="lesson-task__tag">
+                        Topic 7
+                    </span>
+
+                    <span class="lesson-task__title">
+                        Spread Operator — ...arr
+                    </span>
+
+                </summary>
+
+                <div class="lesson-task__body">
+
+                    <p class="homework-q">
+                        Three common uses: copy
+                        <code>[...a]</code>,
+                        merge
+                        <code>[...a, ...b]</code>,
+                        pass as args
+                        <code>Math.max(...nums)</code>.
+                    </p>
+
+                    <p class="output-label">
+                        Reference output
+                    </p>
+
+                    <pre id="task7Output"
+                         class="run-output"></pre>
+
+                </div>
+
+            </details>
+
+
+        </main>
+
+        <!-- Sidebar -->
+
+        <aside class="site-outline"
+       aria-label="Curriculum outline">
+
+    <p class="site-outline-title">
+        Curriculum
+    </p>
+
+    <ul class="site-outline-tree">
+
+        <li class="site-outline-item">
+
+            <a href="../../index.html">
+                Overview
+            </a>
+
+        </li>
+
+        <!-- Day 1 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 1 — Welcome &amp; Variables
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%201/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%201/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%201/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 2 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 2 — Primitive Types
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%202/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%202/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%202/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 3 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 3 — Operators &amp; Core JS Concepts
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%203/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%203/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%203/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 4 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 4 — Control Flow
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%204/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%204/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%204/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 5 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 5 — Loops &amp; Iteration
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%205/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%205/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%205/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 6 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 6 — Functions
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%206/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%206/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%206/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 7 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details" open>
+
+                <summary>
+                    Day 7 — Arrays
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="lesson.html"
+                           aria-current="page">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 8 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 8 — Objects
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%208/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%208/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%208/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 9 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 9 — ES6+ Essentials
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%209/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%209/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%209/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 10 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 10 — DOM Manipulation Basics
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%2010/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%2010/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%2010/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 11 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 11 — Events &amp; Event Handling
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%2011/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%2011/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%2011/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 12 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 12 — Error Handling &amp; Module Basics
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%2012/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%2012/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%2012/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Advanced JavaScript -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Advanced JavaScript
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../../Advanced%20Js/Day%201/html/lesson.html">
+                            Adv 1 · Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../../Advanced%20Js/Day%201/html/hands-on.html">
+                            Adv 1 · Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../../Advanced%20Js/Day%201/html/homework.html">
+                            Adv 1 · Homework
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../../Advanced%20Js/Day%202/html/lesson.html">
+                            Adv 2 · Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../../Advanced%20Js/Day%202/html/hands-on.html">
+                            Adv 2 · Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../../Advanced%20Js/Day%202/html/homework.html">
+                            Adv 2 · Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+    </ul>
+
+</aside>
+
+
+    </div>
+
+    <script defer src="../js/lesson.js"></script>
+
+    <script src="../../../Shared/js/nav-lock.js"></script>
+
+</body>
+
+</html>

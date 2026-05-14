@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Day 6 — Functions — Lesson
+    </title>
+
+    <link rel="preload"
+          href="../../../../Shared/css/styles.css"
+          as="style">
+
+    <link rel="stylesheet"
+          href="../../../../Shared/css/styles.css">
+</head>
+
+<body>
+
+    <div class="page-shell">
+
+        <main class="page-main"
+              id="main-content">
+
+            <header class="page-title">
+
+                <p class="lesson-label">
+                    Lesson
+                </p>
+
+                <h1>
+                    Day 6 — Functions
+                </h1>
+
+            </header>
+
+            
+
+            <!-- Topic 1 -->
+
+            <details class="exercise"
+                     open>
+
+                <summary>
+
+                    <span class="lesson-task__tag">
+                        Topic 1
+                    </span>
+
+                    <span class="lesson-task__title">
+                        Function Declarations — function name(params) { body }
+                    </span>
+
+                </summary>
+
+                <div class="lesson-task__body">
+
+                    <p class="output-label">
+                        Visual reference
+                    </p>
+
+                    <pre class="run-output">Syntax:   function name(params) { ...body }
+To call:   name(arguments)
+
+Term          Means
+Parameter     Placeholder in the definition
+Argument      Actual value passed when calling
+Call / Invoke Run the function: name(args)
+
+function greet(name) {
+  console.log("Hello, " + name + "!");
+}
+
+greet("Priya");
+greet("Aarav");</pre>
+
+                    <p class="output-label">
+                        Follow along
+                    </p>
+
+                    <pre class="run-output">function greet(name) {
+  console.log("Hello, " + name);
+}
+greet("Priya");
+→
+your answer</pre>
+
+                    <p class="output-label">
+                        Reference answers
+                    </p>
+
+                    <pre id="task1Output"
+                         class="run-output"></pre>
+
+                </div>
+
+            </details>
+
+            <!-- Topic 2 -->
+
+            <details class="exercise">
+
+                <summary>
+
+                    <span class="lesson-task__tag">
+                        Topic 2
+                    </span>
+
+                    <span class="lesson-task__title">
+                        return — Functions Give Back Values
+                    </span>
+
+                </summary>
+
+                <div class="lesson-task__body">
+
+                    <p class="homework-q">
+                        <code>console.log</code>
+                        prints for humans.
+                        <code>return</code>
+                        passes a value back to the caller — store it, chain it,
+                        or pass it on.
+                    </p>
+
+                    <p class="homework-q">
+                        <strong>No</strong>
+                        <code>return</code>
+                        → the function still returns
+                        <code>undefined</code>.
+                    </p>
+
+                    <p class="output-label">
+                        Example (return vs side effect)
+                    </p>
+
+                    <pre class="run-output">function add(a, b) {
+  return a + b;
+}
+
+const result = add(5, 3);
+console.log(result);
+
+console.log(add(10, 20));
+
+console.log(add(add(1, 2), add(3, 4)));
+
+function silent() {
+  console.log("doing stuff");
+}
+const x = silent();
+console.log(x);</pre>
+
+                    <p class="output-label">
+                        Follow along
+                    </p>
+
+                    <pre class="run-output">function add(a, b) { return a + b; }
+console.log(add(5, 3));
+→
+your answer
+
+function silent() { console.log("hi"); }
+const x = silent();
+console.log(x);
+→
+x is?</pre>
+
+                    <p class="output-label">
+                        Reference answers
+                    </p>
+
+                    <pre id="task2Output"
+                         class="run-output"></pre>
+
+                </div>
+
+            </details>
+
+            <!-- Topic 3 -->
+
+            <details class="exercise">
+
+                <summary>
+
+                    <span class="lesson-task__tag">
+                        Topic 3
+                    </span>
+
+                    <span class="lesson-task__title">
+                        Function Expressions
+                    </span>
+
+                </summary>
+
+                <div class="lesson-task__body">
+
+                    <p class="homework-q">
+                        A function is a value — you can assign it to a variable
+                        (function expression).
+                    </p>
+
+                    <p class="output-label">
+                        Example
+                    </p>
+
+                    <pre class="run-output">const greet = function(name) {
+  return "Hello, " + name;
+};
+
+console.log(greet("Priya"));</pre>
+
+                    <p class="output-label">
+                        Reference output
+                    </p>
+
+                    <pre id="task3Output"
+                         class="run-output"></pre>
+
+                </div>
+
+            </details>
+
+            <!-- Topic 4 -->
+
+            <details class="exercise">
+
+                <summary>
+
+                    <span class="lesson-task__tag">
+                        Topic 4
+                    </span>
+
+                    <span class="lesson-task__title">
+                        Arrow Functions (ES6)
+                    </span>
+
+                </summary>
+
+                <div class="lesson-task__body">
+
+                    <p class="output-label">
+                        Visual reference
+                    </p>
+
+                    <pre class="run-output">Syntax:   (params) =&gt; { body }
+
+Shortcut                        When
+Drop parens around 1 param      x =&gt; x * 2
+Drop braces &amp; return          (a, b) =&gt; a + b   (single expression)
+Empty parens for zero params    () =&gt; "hi"</pre>
+
+                    <p class="output-label">
+                        Examples
+                    </p>
+
+                    <pre class="run-output">const add = (a, b) =&gt; {
+  return a + b;
+};
+
+const add2 = (a, b) =&gt; a + b;
+
+const square = x =&gt; x * x;
+
+const greet = () =&gt; "Hello!";
+
+console.log(add(2, 3));
+console.log(square(4));
+console.log(greet());</pre>
+
+                    <p class="output-label">
+                        Follow along
+                    </p>
+
+                    <pre class="run-output">const add = (a, b) =&gt; a + b;
+console.log(add(2, 3));
+→
+your answer
+
+const square = x =&gt; x * x;
+console.log(square(4));
+→
+your answer</pre>
+
+                    <p class="output-label">
+                        Reference answers
+                    </p>
+
+                    <pre id="task4Output"
+                         class="run-output"></pre>
+
+                </div>
+
+            </details>
+
+            <!-- Topic 5 -->
+
+            <details class="exercise">
+
+                <summary>
+
+                    <span class="lesson-task__tag">
+                        Topic 5
+                    </span>
+
+                    <span class="lesson-task__title">
+                        Parameters &amp; Defaults
+                    </span>
+
+                </summary>
+
+                <div class="lesson-task__body">
+
+                    <p class="homework-q">
+                        Default parameters apply when the argument is
+                        <code>undefined</code>
+                        — not when you pass
+                        <code>null</code>,
+                        <code>0</code>,
+                        or
+                        <code>""</code>
+                        (unless you handle those separately).
+                    </p>
+
+                    <p class="output-label">
+                        Examples
+                    </p>
+
+                    <pre class="run-output">function greet(name = "Guest") {
+  return "Hello, " + name;
+}
+
+console.log(greet("Anaya"));
+console.log(greet());
+
+const calculatePrice = (price, taxRate = 0.18, discount = 0) =&gt; {
+  return price * (1 + taxRate) - discount;
+};
+
+console.log(calculatePrice(1000));
+console.log(calculatePrice(1000, 0.18, 100));</pre>
+
+                    <p class="output-label">
+                        Follow along
+                    </p>
+
+                    <pre class="run-output">const greet = (n = "Guest") =&gt; "Hello, " + n;
+greet("Anaya")
+→
+your answer
+greet()
+→
+your answer
+greet(null)
+→
+your answer</pre>
+
+                    <p class="output-label">
+                        Reference answers
+                    </p>
+
+                    <pre id="task5Output"
+                         class="run-output"></pre>
+
+                </div>
+
+            </details>
+
+            <!-- Topic 6 -->
+
+            <details class="exercise">
+
+                <summary>
+
+                    <span class="lesson-task__tag">
+                        Topic 6
+                    </span>
+
+                    <span class="lesson-task__title">
+                        Scope: Global vs Local
+                    </span>
+
+                </summary>
+
+                <div class="lesson-task__body">
+
+                    <p class="homework-q">
+                        Global: declared outside any function. Local: declared
+                        inside a function. Inner can read outer; locals do not
+                        leak out.
+                    </p>
+
+                    <p class="output-label">
+                        Example
+                    </p>
+
+                    <pre class="run-output">const globalName = "Priya";
+
+function showName() {
+  const localName = "Aarav";
+  console.log(globalName);
+  console.log(localName);
+}
+
+showName();
+console.log(globalName);
+console.log(localName);   // ReferenceError</pre>
+
+                    <p class="output-label">
+                        Reference answers (console order, then error)
+                    </p>
+
+                    <pre id="task6Output"
+                         class="run-output"></pre>
+
+                </div>
+
+            </details>
+
+            <!-- Topic 7 -->
+
+            <details class="exercise">
+
+                <summary>
+
+                    <span class="lesson-task__tag">
+                        Topic 7
+                    </span>
+
+                    <span class="lesson-task__title">
+                        Pure Functions (intro)
+                    </span>
+
+                </summary>
+
+                <div class="lesson-task__body">
+
+                    <p class="homework-q">
+                        <strong>Pure:</strong>
+                        same inputs → same output; no side effects on the
+                        outside world.
+                        <strong>Impure:</strong>
+                        reads or writes outer state, I/O, randomness, etc.
+                    </p>
+
+                    <p class="output-label">
+                        Example
+                    </p>
+
+                    <pre class="run-output">const add = (a, b) =&gt; a + b;
+
+let counter = 0;
+function impureAdd(n) {
+  counter += n;
+  return counter;
+}</pre>
+
+                    <p class="output-label">
+                        Takeaway
+                    </p>
+
+                    <pre id="task7Output"
+                         class="run-output"></pre>
+
+                </div>
+
+            </details>
+
+
+        </main>
+
+        <!-- Sidebar -->
+
+        <aside class="site-outline"
+       aria-label="Curriculum outline">
+
+    <p class="site-outline-title">
+        Curriculum
+    </p>
+
+    <ul class="site-outline-tree">
+
+        <li class="site-outline-item">
+
+            <a href="../../index.html">
+                Overview
+            </a>
+
+        </li>
+
+        <!-- Day 1 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 1 — Welcome &amp; Variables
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%201/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%201/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%201/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 2 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 2 — Primitive Types
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%202/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%202/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%202/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 3 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 3 — Operators &amp; Core JS Concepts
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%203/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%203/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%203/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 4 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 4 — Control Flow
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%204/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%204/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%204/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 5 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 5 — Loops &amp; Iteration
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%205/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%205/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%205/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 6 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details" open>
+
+                <summary>
+                    Day 6 — Functions
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="lesson.html"
+                           aria-current="page">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 7 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 7 — Arrays
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%207/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%207/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%207/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 8 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 8 — Objects
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%208/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%208/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%208/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 9 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 9 — ES6+ Essentials
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%209/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%209/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%209/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 10 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 10 — DOM Manipulation Basics
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%2010/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%2010/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%2010/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 11 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 11 — Events &amp; Event Handling
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%2011/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%2011/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%2011/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Day 12 -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Day 12 — Error Handling &amp; Module Basics
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../Day%2012/html/lesson.html">
+                            Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%2012/html/hands-on.html">
+                            Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../Day%2012/html/homework.html">
+                            Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+        <!-- Advanced JavaScript -->
+
+        <li class="site-outline-day">
+
+            <details class="site-outline-details">
+
+                <summary>
+                    Advanced JavaScript
+                </summary>
+
+                <ul>
+
+                    <li>
+                        <a href="../../../Advanced%20Js/Day%201/html/lesson.html">
+                            Adv 1 · Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../../Advanced%20Js/Day%201/html/hands-on.html">
+                            Adv 1 · Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../../Advanced%20Js/Day%201/html/homework.html">
+                            Adv 1 · Homework
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../../Advanced%20Js/Day%202/html/lesson.html">
+                            Adv 2 · Lesson
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../../Advanced%20Js/Day%202/html/hands-on.html">
+                            Adv 2 · Hands-on
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../../Advanced%20Js/Day%202/html/homework.html">
+                            Adv 2 · Homework
+                        </a>
+                    </li>
+
+                </ul>
+
+            </details>
+
+        </li>
+
+    </ul>
+
+</aside>
+
+
+    </div>
+
+    <script defer src="../js/lesson.js"></script>
+
+    <script src="../../../Shared/js/nav-lock.js"></script>
+
+</body>
+
+</html>
