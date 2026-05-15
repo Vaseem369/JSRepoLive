@@ -12,7 +12,7 @@
     const task1Code = [];
 
     task1Code.push('console.log("Hello, World!");');
-    task1Code.push('const myName = "Priya";');
+    task1Code.push('const myName = "Vaseem";');
     task1Code.push("console.log(myName);");
     task1Code.push('console.log(myName + " is learning JS");');
     setPre("#task1Code", task1Code);
@@ -20,8 +20,8 @@
     const task1Out = [];
 
     task1Out.push("Hello, World!");
-    task1Out.push("Priya");
-    task1Out.push("Priya is learning JS");
+    task1Out.push("Vaseem");
+    task1Out.push("Vaseem is learning JS");
     setPre("#task1Output", task1Out);
 
     const task2Code = [];
